@@ -37,11 +37,10 @@ public class ParcelamentoServiceImpl implements ParcelamentoService {
 			double valorDemaisParcelas = Math.floor((totalASerPago / i) * 100.0) / 100.0;
 			double valorPrimeiraParcela = Math.round((totalASerPago - (valorDemaisParcelas * (i - 1))) * 100.0) / 100.0;
 
-			ParcelamentoDTO p = new ParcelamentoDTO(i, valorPrimeiraParcela, valorDemaisParcelas, totalASerPago);
+			ParcelamentoDTO p = new ParcelamentoDTO(i, valorPrimeiraParcela, valorDemaisParcelas, Math.round(totalASerPago * 100.0) / 100.0);
 			if (i == 1) {
 				p.setValorDemaisParcelas(null);
 			}
-			p.setValorParcelamentoTotal(Math.round(totalASerPago * 100.0) / 100.0);
 			parcelamentos.add(p);
 		}
 
